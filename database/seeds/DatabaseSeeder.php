@@ -27,10 +27,10 @@ class DatabaseSeeder extends Seeder {
 
 		factory(Estudiante::class, 500)->create();
 
-		factory(Curso::class, 40)->create()
+		factory(Curso::class, 10)->create()
 		->each(function($curso)
 			{
-				$curso->estudiantes()->attach(array_rand(range(1, 500),40));
+				$curso->estudiantes()->attach(array_rand(range(1, 500), mt_rand(1,10) ));
 			});
 
 		$this->call('OAuthClientSeeder');
